@@ -1,0 +1,6 @@
+version: "3.8"
+services:
+  my_shopping_app:
+    image: keerthivasan041803/dev:latest
+    ports:
+      - "80:80"
