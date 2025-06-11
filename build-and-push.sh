@@ -21,7 +21,7 @@ docker login
 echo "building the immage "
 docker build -t $image_name:$tag .
 
-if [$branch == "dev"] then 
+if [ $branch == "dev" ] then 
     echo "tagging the image $main_name"
     docker tag $image_name:$tag $full_name
     echo "pushing the docker image"
