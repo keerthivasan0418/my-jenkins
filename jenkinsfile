@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage("Build & Push Docker Image") {
+        stage("Build and pushing") {
             steps {
                 script {
                     echo 'Executing build-and-push.sh'
                     sh 'chmod +x build-and-push.sh'                
                     def branch = env.BRANCH_NAME ?: 'dev'
-                    sh "./build-and-push.sh ${branch}"
+                    sh "build-and-push.sh ${branch}"
                 }
             }
         }
