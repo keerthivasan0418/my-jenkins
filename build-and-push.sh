@@ -23,14 +23,14 @@ sudo docker build -t $image_name:$tag .
 
 
 
-if [ $branch == "dev" ] then 
+if [ $branch == "dev" ]; then 
     echo "tagging the image $main_name"
     sudo docker tag $image_name:$tag $full_name
     echo "pushing the docker image"
     sudo docker push $main_name
 fi
 
-if [$branch =="master"] then 
+if [$branch =="master"]; then 
     echo "tagging the image $main_name_pri"
     sudo docker tag $image_name:$tag $full_name_pri  
     echo "pushing the image to pri repo"
