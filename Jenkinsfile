@@ -18,7 +18,7 @@ pipeline {
                     echo 'Deploying docker image to EC2'
                     def dockerCmd = "docker run -p 8080:8080 -d nginx:latest"
                     sshagent(['jen-123']) {
-                        sh "ssh -o StrictHostKeyChecking=no ec2-user@44.203.144.104 ${dockerCmd}"
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@44. .144.104 ${dockerCmd}"
                     }
                 }
             }
