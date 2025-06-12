@@ -15,11 +15,13 @@ branch=$1
 
 
 echo "logging into docker hub"
-docker login 
+docker login -u="keerthivasan041803" -p="kee@77189"
 
 
 echo "building the immage "
 docker build -t $image_name:$tag .
+
+
 
 if [ $branch == "dev" ] then 
     echo "tagging the image $main_name"
