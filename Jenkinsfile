@@ -7,7 +7,7 @@ pipeline {
                 script {
                     echo 'Executing build-and-push.sh'
                     sh 'chmod +x build-and-push.sh'                              
-                    sh "build-and-push.sh ${BRANCH_NAME}"
+                    sh "build-and-push.sh ${env.BRANCH_NAME}"
                 }
             }
         }
