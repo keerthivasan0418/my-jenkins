@@ -1,6 +1,6 @@
 #!/bin/bash
 
-image_name="shopping-ui-3"
+image_name="shopping-ui"
 tag="latest"
 dockerhub_username="keerthivasan041803"
 dockerhub_repo="dev"
@@ -23,14 +23,14 @@ docker build -t $image_name:$tag .
 
 
 
-if [ $branch == "dev" ]; then 
+if [ "$branch" == "dev" ]; then 
     echo "tagging the image $main_name"
     docker tag $image_name:$tag $full_name
     echo "pushing the docker image"
     docker push $main_name
 fi
 
-if [$branch =="master"]; then 
+if ["$branch" =="master"]; then 
     echo "tagging the image $main_name_pri"
     docker tag $image_name:$tag $full_name_pri  
     echo "pushing the image to pri repo"
