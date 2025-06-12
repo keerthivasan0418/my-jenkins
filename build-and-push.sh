@@ -11,12 +11,8 @@ full_name=$main_name:$tag
 full_name_pri=$main_name_pri:$tag
 branch=$1
 
-
-
-
 echo "logging into docker hub"
 docker login 
-
 
 echo "building the immage "
 docker build -t $image_name:$tag .
