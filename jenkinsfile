@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage("Build & Push Docker Image") {
+        stage("Build and pushing") {
             steps {
                 script {
                     echo 'Executing build-and-push.sh'
