@@ -6,9 +6,8 @@ pipeline {
             steps {
                 script {
                     echo 'Executing build-and-push.sh'
-                    sh 'chmod +x build-and-push.sh'                
-                    def branch = env.BRANCH_NAME ?: 'dev'
-                    sh "./build-and-push.sh ${branch}"
+                    sh 'chmod +x build-and-push.sh'                              
+                    sh "build-and-push.sh ${BRANCH_NAME}"
                 }
             }
         }
