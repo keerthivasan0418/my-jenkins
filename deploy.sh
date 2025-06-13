@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 branch=$1
 if [$branch=="dev"]; then
     echo "running the docker container"
