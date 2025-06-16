@@ -10,5 +10,5 @@ fi
 
 if [ $branch == "prod" ]; then
     echo "running the docker container"
-    docker run -d -p 80:80 keerthivasan041803/prod:latest
+    docker run -d -p 8080:80 keerthivasan041803/prod:latest
 fi
