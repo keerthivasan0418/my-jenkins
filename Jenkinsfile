@@ -16,8 +16,8 @@ pipeline {
                 script {
                     echo 'Deploying docker image to EC2'                    
                     sshagent(['jen-123']) {
-                        sh"scp -o stricthostkechecking=no ec2-user@3.85.202.240/home/ec2-user/deploy.sh"
-                        sh "ssh -o StrictHostKeyChecking=no ec2-user@3.85.202.240 'chmod+x deploy.sh && ./deploy.sh "
+                        sh"scp -o stricthostkechecking=no deploy.sh ec2-user@3.85.202.240/home/ec2-user/deploy.sh"
+                        sh "ssh -o StrictHostKeyChecking=no ec2-user@3.85.202.240 'chmod+x /home/ec2-user/deploy.sh && /home/ec2-user/deploy.sh "
                     }
                 }
             }
