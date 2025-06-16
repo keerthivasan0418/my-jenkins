@@ -10,15 +10,7 @@ pipeline {
                     sh "./build-and-push.sh ${env.BRANCH_NAME}"
                 }
             }
-        }     
-        stage("build"){
-            steps{
-            }
-            post{
-                success { emailext(subject:'Build Success: ${env.JOB_NAME}', to:'keerthivasanbmbk@gmail.com', body:'Build was successful.') }
-                failure { emailext(subject:'Build Failure: ${env.JOB_NAME}', to:'keerthivasanbmbk@gmail.com', body:'Build failed.') }
-            }
-        }
+        }             
         stage("Deploy to EC2") {
             steps {
                 script {
