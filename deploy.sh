@@ -2,6 +2,10 @@
 
 
 branch=$1
+
+echo "logging into docker hub"
+docker login -u="keerthivasan041803" -p="kee@77189"
+
 if [ $branch == "dev" ]; then
     echo "running the docker container"
     docker run -d -p 80:80 keerthivasan041803/dev:latest
