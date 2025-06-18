@@ -1,19 +1,13 @@
 pipeline {
     agent any
     
-    parameters{
-         choice(
-            name: 'BRANCH_NAME',
-            choices: [ 'dev' ,  'prod' ],            
-        )        
-    }
     stages {
         stage("Build and pushing") {
             steps {
                 script {
                     echo 'Executing build-and-push.sh'
                     sh 'chmod +x build-and-push.sh'                              
-                    sh "./build-and-push.sh ${params.BRANCH_NAME}"
+                    sh "./build-and-push.sh ${env.BRANCH_NAME}"
                 }
             }
         }             
@@ -23,7 +17,7 @@ pipeline {
                     echo 'Deploying docker image to EC2'                    
                     sshagent(['jen-123']) {
                        sh "scp -o StrictHostKeyChecking=no deploy.sh ec2-user@3.85.202.240:/home/ec2-user/deploy.sh "
-                       sh "ssh -o StrictHostKeyChecking=no ec2-user@3.85.202.240 'chmod +x /home/ec2-user/deploy.sh && /home/ec2-user/deploy.sh ${params.BRANCH_NAME}'"
+                       sh "ssh -o StrictHostKeyChecking=no ec2-user@3.85.202.240 'chmod +x /home/ec2-user/deploy.sh && /home/ec2-user/deploy.sh ${env.BRANCH_NAME}'"
                     }
                 }
             }
