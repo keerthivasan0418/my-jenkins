@@ -8,7 +8,7 @@ if [ $branch == "dev" ]; then
 fi
 
 
-if [ $branch == "prod" ]; then
+if [ $branch == "master" ]; then
     echo "running the docker container"
     docker run -d -p 5006:80 keerthivasan041803/prod:latest
 fi
