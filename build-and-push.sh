@@ -30,7 +30,7 @@ if [ "$branch" == "dev" ]; then
     docker push $main_name
 fi
 
-if ["$branch" =="master"]; then 
+if [ "$branch" == "master" ]; then 
     echo "tagging the images $main_name_pri"
     docker tag $image_name:$tag $full_name_pri  
     echo "pushing the image to pri repo"
